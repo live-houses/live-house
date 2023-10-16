@@ -37,16 +37,19 @@ public class LoginController {
         DBConection conectionNow = new DBConection();
         Connection connectDB = conectionNow.getConnection();
 
-        String verifyLogin = "SELECT COUNT(1) FROM account WHERE username = '" + userTextField.getText() + "' AND hashed_password = '" + passwordField.getText() + "'";
+        String verifyLogin = (
+            "SELECT COUNT(1) FROM account WHERE username = '" + userTextField.getText() + "' AND hashed_password = '" + passwordField.getText() + "'"
+        );
 
         try{
             Statement statement = connectDB.createStatement();
             ResultSet queryResult = statement.executeQuery(verifyLogin);
 
-            while(queryResult.next()){
+            while (queryResult.next()) {
                 if(queryResult.getInt(1) == 1){
                     System.out.println("Login success");
-                }else{
+                }
+                else{
                     System.out.println("Invalid login");
                 }
             }

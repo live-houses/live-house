@@ -1,9 +1,8 @@
 package livehouses;
 
 import java.util.regex.Pattern;
-import livehouses.UserRole;
 
-    public class BaseUser {
+public class BaseUser {
     private String username;
     private String email;
     private String password;
@@ -24,5 +23,11 @@ import livehouses.UserRole;
         }
     }
 
-    // Getter y setter para los atributos
+    public class PasswordValidation {
+        private static final String PASSWORD_REGEX = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+
+        public static boolean isValidPassword(String password) {
+            return Pattern.matches(PASSWORD_REGEX, password);
+        }
+    }
 }

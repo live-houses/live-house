@@ -10,11 +10,11 @@ public class Analitics extends BaseMenu{
         drawHeader();
 
         Printer.print("Aqui irian analiticas");
-        
+
         Printer.newLine();
         App.scanner.nextLine();
         ConsoleUtils.pressEnterToContinue();
-        
+
         return MenuManager.Menu.AdminPanelMenu;
     }
 

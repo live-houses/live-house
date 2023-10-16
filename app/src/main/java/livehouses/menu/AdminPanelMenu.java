@@ -2,7 +2,7 @@ package livehouses.menu;
 
 import livehouses.App;
 import livehouses.AppState;
-import livehouses.Local;
+import livehouses.Locale;
 import livehouses.db.DB;
 import livehouses.utils.ConsoleUtils;
 import livehouses.utils.pretty.Printer;
@@ -28,8 +28,8 @@ public class AdminPanelMenu extends BaseMenu{
         else {
             String localAsignado = "";
             Printer.print("Menú de gerente de Live House\n", 239, 185, 201);
-            for (Local local : DB.getAllLocals()) {
-                if (local.managerID == appState.getLoggedUser().id) {
+            for (Locale local : DB.getAllLocals()) {
+                if (local.managerId == appState.getLoggedUser().id) {
                     Printer.print("Local asignado: " + local.localName);
                     localAsignado = local.localName;
                     Printer.newLine();

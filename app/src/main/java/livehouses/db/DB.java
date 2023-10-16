@@ -3,12 +3,12 @@ package livehouses.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import livehouses.Local;
+import livehouses.Locale;
 import livehouses.SystemUser;
 
 public class DB {
     public static List<User> usersTable;
-    public static List<Locale> localesTable;
+    public static List<DBLocale> localesTable;
 
     public static class User {
         private String email;
@@ -35,12 +35,12 @@ public class DB {
         }
     }
 
-    public static class Locale {
-        private int managerId;
-        private String localName;
-        private String direccion;
+    public static class DBLocale {
+        public int managerId;
+        public String localName;
+        public String direccion;
 
-        public Locale(int managerId,String localName, String direccion) {
+        public DBLocale(int managerId,String localName, String direccion) {
             this.managerId = managerId;
             this.localName = localName;
             this.direccion = direccion;
@@ -55,11 +55,11 @@ public class DB {
             add(new User(4, "organizador", "Juan Martinez", "123", 0));
         }};
 
-        DB.localesTable = new ArrayList<Locale>() {{
-            add(new Locale(1, "Live-house SiempreViva", "Av SiempreViva 123"));
-            add(new Locale(2, "Live-house Rambla", "La Rambla de Huarochiri km123"));
-            add(new Locale(3, "Live-house Camote", "Puente Camote calle 13"));
-            add(new Locale(4, "Live-house Lurigancho", "Huarochiri, Santa Anita"));
+        DB.localesTable = new ArrayList<DBLocale>() {{
+            add(new DBLocale(1, "Live-house SiempreViva", "Av SiempreViva 123"));
+            add(new DBLocale(2, "Live-house Rambla", "La Rambla de Huarochiri km123"));
+            add(new DBLocale(3, "Live-house Camote", "Puente Camote calle 13"));
+            add(new DBLocale(4, "Live-house Lurigancho", "Huarochiri, Santa Anita"));
         }};
     }
 
@@ -88,11 +88,11 @@ public class DB {
     }
 
     // show all locals
-    public static List<Local> getAllLocals() {
-        List<Local> locales = new ArrayList<>();
+    public static List<Locale> getAllLocals() {
+        List<Locale> locales = new ArrayList<>();
 
-        for (Locale local : DB.localesTable) {
-            locales.add(new Local(local.managerId, local.localName, local.direccion));
+        for (DBLocale local : DB.localesTable) {
+            locales.add(new Locale(local.managerId, local.localName, local.direccion));
         }
         return locales;
     }
@@ -100,7 +100,7 @@ public class DB {
     // TODO: return an id here
     public static void insertLocal(String address, String localName, int managerId) {
         DB.localesTable.add(
-            new Locale(managerId, localName, address)
+            new DBLocale(managerId, localName, address)
         );
     }
 }

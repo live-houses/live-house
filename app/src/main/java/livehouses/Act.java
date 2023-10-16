@@ -3,7 +3,7 @@ package livehouses;
 import java.util.Date;
 
 public class Act {
-    
+
     private Date begin_time;
     private Date end_time;
     private Band band;

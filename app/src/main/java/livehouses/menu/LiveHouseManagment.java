@@ -2,7 +2,7 @@ package livehouses.menu;
 
 import livehouses.App;
 import livehouses.AppState;
-import livehouses.Local;
+import livehouses.Locale;
 import livehouses.db.DB;
 import livehouses.utils.ConsoleUtils;
 import livehouses.utils.pretty.Printer;
@@ -16,7 +16,7 @@ public class LiveHouseManagment extends BaseMenu{
         Printer.newLine();
         App.scanner.nextLine();
 
-        for (Local local : DB.getAllLocals()) {
+        for (Locale local : DB.getAllLocals()) {
             local.printInformation();
         }
 

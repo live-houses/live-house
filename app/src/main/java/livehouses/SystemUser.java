@@ -1,9 +1,6 @@
 package livehouses;
 
-import java.util.regex.Pattern;
-
 // Represents a loggeable user for the system
-
 public class SystemUser {
     public int id;
     public String email;

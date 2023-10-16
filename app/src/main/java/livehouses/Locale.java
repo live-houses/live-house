@@ -2,19 +2,19 @@ package livehouses;
 
 import livehouses.utils.pretty.Printer;
 
-public class Local {
-    public int managerID;
+public class Locale {
+    public int managerId;
     public String direccion;
     public String localName;
 
-    public Local(int managerID, String localName,  String direccion){
-        this.managerID = managerID;
+    public Locale(int managerID, String localName,  String direccion){
+        this.managerId = managerID;
         this.localName = localName;
         this.direccion = direccion;
     }
 
-    public Local(){
-        this.managerID = 0;
+    public Locale(){
+        this.managerId = 0;
         this.localName = "";
         this.direccion = "";
     }
@@ -24,7 +24,7 @@ public class Local {
         Printer.newLine();
         Printer.print("Direccion: " + this.direccion);
         Printer.newLine();
-        Printer.print("Manager ID: " + this.managerID);
+        Printer.print("Manager ID: " + this.managerId);
         Printer.newLine();
         Printer.newLine();
     }

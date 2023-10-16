@@ -1,7 +1,7 @@
 package livehouses;
 
-public class ManagerUser extends BaseUser {
-    public ManagerUser(String username, String email, String password) {
+public class AdminUser extends BaseUser {
+    public AdminUser(String username, String email, String password) {
         super(username, email, password, UserRole.Manager);
     }
 
