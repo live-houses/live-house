@@ -6,5 +6,4 @@ public class ManagerUser extends BaseUser {
     }
 
     // Método específicos para ManagerUser
-
 }

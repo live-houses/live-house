@@ -14,5 +14,16 @@ public class Act {
         this.band = band;
     }
 
-    // Getters y setters para los atributos
+    static public Date isValiDate(Date begin_time, Date end_time) {
+        if (begin_time.after(end_time)) {
+            return null;
+        }
+        return end_time;
+    }
+
+    public Date getBeginTime() { return begin_time; }
+    public Date getEndTime() { return end_time; }
+    public Band getBand() { return band; }
 }
+
+

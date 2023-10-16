@@ -92,7 +92,7 @@ public class DB {
         List<Locale> locales = new ArrayList<>();
 
         for (DBLocale local : DB.localesTable) {
-            locales.add(new Locale(local.managerId, local.localName, local.direccion));
+            locales.add(new Locale(local.managerId, local.localName, local.direccion, new Double[]{0.0, 0.0}));
         }
         return locales;
     }
@@ -102,5 +102,13 @@ public class DB {
         DB.localesTable.add(
             new DBLocale(managerId, localName, address)
         );
+    }
+
+    public static SystemUser getOnwerOfTicket(int ticketId) {
+        return null;
+    }
+
+    public static boolean validateTicket(int ticketId) {
+        return false;
     }
 }

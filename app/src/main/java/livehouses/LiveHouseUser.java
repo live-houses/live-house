@@ -1,18 +1,20 @@
 package livehouses;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-public class BaseUser {
+public class LiveHouseUser {
     private String username;
     private String email;
     private String password;
-    private UserRole role;
+    private ArrayList<Ticket> tickets;
+    private CreditCard creditCard;
 
-    public BaseUser(String username, String email, String password, UserRole role) {
-        this.username = username;
+    public void validateAndAddEmail(String email) {
+        if (!EmailValidation.isValidEmail(email)) {
+            throw new IllegalArgumentException("Invalid email");
+        }
         this.email = email;
-        this.password = password;
-        this.role = role;
     }
 
     public class EmailValidation {
@@ -26,7 +28,9 @@ public class BaseUser {
     }
 
     public class PasswordValidation {
-        private static final String PASSWORD_REGEX = ("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+        private static final String PASSWORD_REGEX = (
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
+            );
 
         public static boolean isValidPassword(String password) {
             return Pattern.matches(PASSWORD_REGEX, password);
@@ -40,9 +44,6 @@ public class BaseUser {
             return Pattern.matches(USERNAME_REGEX, username);
         }
     }
-
-    public String getUsername() { return username; }
-    public String getEmail() { return email; }
-    public UserRole getRole() { return role; }
-    public String getPassword() { return password; }
 }
+
+
